@@ -1,0 +1,38 @@
+version: "3.9"
+
+services:
+  create-client:
+    build:
+      context: ./create-client
+    container_name: create-client-service
+    ports:
+      - "3001:3001"
+    env_file:
+      - ./create-client/.env
+
+  get-client:
+    build:
+      context: ./get-client
+    container_name: get-client-service
+    ports:
+      - "3002:3002"
+    env_file:
+      - ./get-client/.env
+
+  update-client:
+    build:
+      context: ./update-client
+    container_name: update-client-service
+    ports:
+      - "3003:3003"
+    env_file:
+      - ./update-client/.env
+
+  delete-client:
+    build:
+      context: ./delete-client
+    container_name: delete-client-service
+    ports:
+      - "3004:3004"
+    env_file:
+      - ./delete-client/.env

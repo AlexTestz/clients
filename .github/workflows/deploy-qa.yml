@@ -1,0 +1,33 @@
+name: Deploy Clients QA
+
+on:
+  push:
+    branches:
+      - QA
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Setup SSH
+        uses: appleboy/ssh-action@v1.0.0
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ubuntu
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            # Ingresar a la carpeta del dominio clients
+            cd ~/clients
+
+            # Detener cualquier contenedor previo y limpiar
+            sudo docker compose down
+
+            # Descargar las últimas imágenes desde Docker Hub
+            sudo docker compose pull
+
+            # Levantar los contenedores de los microservicios
+            sudo docker compose up -d
