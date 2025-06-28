@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 3002
 
 # Comando para ejecutar el microservicio
-CMD ["npm", "run", "dev"]
+CMD ["npm", "start"]
