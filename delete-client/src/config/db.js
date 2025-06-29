@@ -11,7 +11,7 @@ const pool = new Pool({
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
-    ssl: useSSL
+    ssl: useSSL ? { rejectUnauthorized: false } : false,
 });
 
 module.exports = pool;
