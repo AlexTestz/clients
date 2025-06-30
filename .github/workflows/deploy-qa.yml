@@ -23,6 +23,8 @@ jobs:
             # Ingresar a la carpeta del dominio clients
             cd ~/clients
 
+             git pull origin QA # Trae los últimos cambios de la rama QA
+
             # Detener cualquier contenedor previo y limpiar
             sudo docker-compose down
 
