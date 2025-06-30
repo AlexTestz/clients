@@ -1,17 +1,18 @@
-const { Pool } = require('pg');
+//
 require('dotenv').config();
+const express = require('express');
+const app = express();
+const PORT = process.env.PORT || 3003;
 
-const useSSL = process.env.DB_SSL === 'true';
-console.log(`Conectando a PostgreSQL con SSL: ${useSSL}`);
+app.use(express.json());
 
+const clientRoutes = require('./routes/clients.routes');
+app.use('/api', clientRoutes);
 
-const pool = new Pool({
-  host: process.env.DB_HOST,
-  port: process.env.DB_PORT,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE,
-    ssl: useSSL
+app.get('/', (req, res) => {
+  res.send('✅ Update Client Service is running!');
 });
 
-module.exports = pool;
+app.listen(PORT, () => {
+  console.log(`🚀 Server is listening on port ${PORT}`);
+});
