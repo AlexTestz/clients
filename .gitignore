@@ -50,3 +50,27 @@ htmlcov/
 .pytest_cache/
 jest-coverage/
 .nyc_output/
+
+# Ignorar node_modules (todas las dependencias)
+node_modules/
+
+# Ignorar los archivos de entorno
+.env
+
+# Ignorar logs de desarrollo
+logs/
+*.log
+
+# Ignorar archivos de configuración locales
+*.env
+
+# Ignorar los archivos de test o coverage
+coverage/
+
+# Ignorar los archivos generados por el sistema operativo (dependiendo de tu sistema)
+.DS_Store      # (Para macOS)
+Thumbs.db      # (Para Windows)
+
+# Otros archivos o carpetas que no deseas incluir
+dist/
+build/

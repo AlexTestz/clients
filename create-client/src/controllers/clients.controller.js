@@ -1,5 +1,16 @@
 const pool = require('../config/db');
 
+
+/**
+ * @swagger
+ * /api/clients:
+ *   post:
+ *     description: Crea un cliente en la base de datos
+ *     responses:
+ *       201:
+ *         description: Cliente creado y guardado correctamente
+ */
+
 exports.createClient = async (req, res, next) => {
   const { name, last_name, email, phone } = req.body;
 

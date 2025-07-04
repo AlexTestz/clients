@@ -1,14 +1,19 @@
+// src/index.js
+
 require('dotenv').config(); // cargar variables de entorno desde .env
 const express = require('express');
-const cors = require('cors'); 
+const cors = require('cors');
+const { swaggerUi, swaggerSpec } = require('./config/swagger');  // Importar configuración de Swagger
 const app = express();
 
-
 // Middleware
-app.use(cors());            
+app.use(cors());
 app.use(express.json());
 
-// Routes
+// Usar Swagger UI en la ruta '/docs'
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+// Rutas
 const clientRoutes = require('./routes/clients.routes');
 app.use('/api', clientRoutes);
 
