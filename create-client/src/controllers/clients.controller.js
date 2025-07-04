@@ -5,10 +5,10 @@ const pool = require('../config/db');
  * @swagger
  * /api/clients:
  *   post:
- *     description: Crea un cliente en la base de datos
+ *     description: Create a new client in the system
  *     responses:
  *       201:
- *         description: Cliente creado y guardado correctamente
+ *         description: client created successfully
  */
 
 exports.createClient = async (req, res, next) => {
@@ -33,7 +33,7 @@ exports.createClient = async (req, res, next) => {
       client: result.rows[0],
     });
   } catch (err) {
-    next(err); // 👈 Esto manda el error al manejador global
+    next(err); // 👈 This sends the error to the global handler.
   }
 };
 

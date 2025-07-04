@@ -4,13 +4,13 @@ exports.deleteClient = async (req, res, next) => {
   const { id } = req.params;
 
   try {
-    // Verifica si el cliente existe
+    // Verific if the client exists
     const existing = await pool.query('SELECT * FROM clients WHERE id = $1', [id]);
     if (existing.rows.length === 0) {
       return res.status(404).json({ message: 'Client not found' });
     }
 
-    // Elimina el cliente
+    // Delete the client
     await pool.query('DELETE FROM clients WHERE id = $1', [id]);
 
     res.status(200).json({ message: 'Client deleted successfully' });

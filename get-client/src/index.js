@@ -1,11 +1,17 @@
+// src/index.js
+
 require('dotenv').config();
 const express = require('express');
-const cors = require('cors'); // 👈 importar CORS
+const cors = require('cors');
+const { swaggerUi, swaggerSpec } = require('./config/swagger'); // Importar configuración de Swagger
 const app = express();
 const PORT = process.env.PORT || 3002;
 
-app.use(cors()); // 👈 habilitar CORS para todas las rutas
+app.use(cors()); // Habilitar CORS para todas las rutas
 app.use(express.json());
+
+// Usar Swagger UI en la ruta '/docs'
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Routes
 const clientRoutes = require('./routes/clients.routes');

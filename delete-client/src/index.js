@@ -1,10 +1,17 @@
+// src/index.js
+
 require('dotenv').config();
 const express = require('express');
+const { swaggerUi, swaggerSpec } = require('./config/swagger');  // Importar configuración de Swagger
 const app = express();
 const PORT = process.env.PORT || 3004;
 
 app.use(express.json());
 
+// Usar Swagger UI en la ruta '/docs'
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
+// Rutas
 const clientRoutes = require('./routes/clients.routes');
 app.use('/api', clientRoutes);
 
@@ -15,5 +22,3 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`🚀 Server is listening on port ${PORT}`);
 });
-// This code sets up an Express server for the Delete Client service.
-// It listens on a specified port (default 3004) and uses a router for client-related routes.

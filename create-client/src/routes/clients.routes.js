@@ -9,11 +9,11 @@ const validateClient = require('../middlewares/validateClient');
  * @swagger
  * /api/clients:
  *   post:
- *     description: Crea un nuevo cliente
+ *     description: Create a new client
  *     parameters:
  *       - in: body
  *         name: client
- *         description: El cliente que se va a crear
+ *         description: The client to be created
  *         schema:
  *           type: object
  *           required:
@@ -30,7 +30,7 @@ const validateClient = require('../middlewares/validateClient');
  *               type: string
  *     responses:
  *       201:
- *         description: Cliente creado exitosamente
+ *         description: Client successfully created
  */
 router.post('/clients', validateClient, createClient);
 
@@ -38,19 +38,19 @@ router.post('/clients', validateClient, createClient);
  * @swagger
  * /api/clients/{id}:
  *   get:
- *     description: Obtiene un cliente por su ID
+ *     description: Get a client by their ID
  *     parameters:
  *       - in: path
  *         name: id
  *         required: true
- *         description: ID del cliente
+ *         description: ID  clint to retrieve
  *         schema:
  *           type: string
  *     responses:
  *       200:
- *         description: Detalles del cliente
+ *         description: details of the client
  *       404:
- *         description: Cliente no encontrado
+ *         description: Client not found
  */
 router.get('/clients/:id', getClientById);
 

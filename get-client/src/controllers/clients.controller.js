@@ -1,6 +1,6 @@
 const pool = require('../config/db');
 
-// 🔍 Obtener todos los clientes
+// 🔍 get all clients
 exports.getAllClients = async (req, res, next) => {
   try {
     const result = await pool.query('SELECT * FROM clients ORDER BY id');
@@ -11,7 +11,7 @@ exports.getAllClients = async (req, res, next) => {
   }
 };
 
-// 🔍 Obtener cliente por ID
+// 🔍 get client id
 exports.getClientById = async (req, res, next) => {
   const { id } = req.params;
 
