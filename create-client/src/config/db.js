@@ -6,9 +6,9 @@ if (process.env.NODE_ENV !== 'ci') {
   dotenv.config({ path: path.resolve(__dirname, '../../.env') });
 }
 
-const useSSL = true;  // fuerza usar SSL, porque AWS RDS lo requiere
+const useSSL = true;  // Set to true if you want to use SSL for PostgreSQL connection
 
-console.log(`Conectando a PostgreSQL con SSL: ${useSSL}`);
+console.log(`Connecting to PostgreSQL with SSL: ${useSSL}`);
 
 const pool = new Pool({
   host: process.env.PG_HOST,

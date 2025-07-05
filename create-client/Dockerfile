@@ -1,20 +1,20 @@
-# Usamos una imagen base de Node.js
+# We use a Node.js base image.
 FROM node:18
 
-# Establecemos el directorio de trabajo dentro del contenedor
+# We set the working directory inside the container.
 WORKDIR /usr/src/app
 
-# Copiamos los archivos de la aplicación
+# We copy the application files.
 COPY package*.json ./
 
-# Instalamos TODAS las dependencias, incluyendo dev (opcional)
+# Install ALL dependencies, including dev (optional)
 RUN npm install
 
-# Copiamos el resto del código fuente
+# Copy the rest of the source code
 COPY . .
 
-# Exponemos el puerto
+# Expose the port
 EXPOSE 3001
 
-# Ejecutamos el microservicio
+# Run the microservice
 CMD ["npm", "start"]

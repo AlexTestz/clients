@@ -1,56 +1,58 @@
-new# Clients Domain Microservices
+# Clients Domain Microservices
 
-Este dominio agrupa los microservicios responsables de la gestión de clientes en el sistema **My Pet Host**. Cada microservicio sigue principios de arquitectura desacoplada, facilitando la escalabilidad, el mantenimiento y la independencia de cada funcionalidad.
+This domain groups the microservices responsible for client management in the **My Pet Host** system. Each microservice follows decoupled architecture principles, facilitating scalability, maintainability, and functional independence.
 
 ---
 
-## 🛠️ Tecnologías y Frameworks
+## 🛠️ Technologies and Frameworks
 
-- **Lenguaje:** JavaScript (Node.js)
+- **Language:** JavaScript (Node.js)
 - **Framework:** Express.js
-- **Base de datos:** PostgreSQL
-- **Validación:** express-validator
-- **Manejo de CORS:** Paquete cors
-- **Docker:** Para despliegue y portabilidad
+- **Database:** PostgreSQL
+- **Validation:** express-validator
+- **CORS Handling:** cors package
+- **Docker:** For deployment and portability
 
 ---
 
-## 📡 Estilo de arquitectura
+## 📡 Architecture Style
 
-- **Tipo de API:** RESTful
-- **Estilo arquitectónico:** Microservicios
-- **Comunicación:** HTTP
-
----
-
-## 🏗️ Microservicios del dominio
-
-- **create-client:** Creacion de clientes.
-- **get-client:** Consulta de clientes por ID.
-- **update-client:** Actualización de datos de clientes.
-- **delete-client:** Eliminación de clientes.
-
-Cada microservicio implementa su propia lógica, rutas, controladores, modelos y middlewares, siguiendo una arquitectura en n-capas y el patrón MVC.
+- **API Type:** RESTful
+- **Architecture Style:** Microservices
+- **Communication:** HTTP
 
 ---
 
-## 🧩 Patrones de diseño aplicados
+## 🏗️ Domain Microservices
 
-- **KISS:** Código simple y directo, fácil de mantener.
-- **DRY:** Reutilización de lógica y utilidades comunes.
-- **SOLID:** Separación de responsabilidades en rutas, controladores y middlewares.
+- **create-client:** Client creation.
+- **get-client:** Query client by ID.
+- **update-client:** Update client data.
+- **delete-client:** Delete client.
 
----
-
-## 🔐 Seguridad y Middleware
-
-- **CORS:** Configurado globalmente en cada microservicio.
-- **Validación:** express-validator para sanitizar y validar datos de entrada.
-- **JWT:** Actualmente **NO** se utiliza autenticación JWT en estos microservicios.
+Each microservice implements its own logic, routes, controllers, models, and middlewares, following an N-layer architecture and the MVC pattern.
 
 ---
 
-## 📦 Estructura del dominio
+## 🧩 Applied Design Patterns
+
+- **KISS:** Simple, straightforward code that is easy to maintain.
+- **DRY:** Reuse of logic and shared utilities.
+- **SOLID:** Responsibility separation across routes, controllers, and middlewares.
+
+---
+
+## 🔐 Security and Middleware
+
+- **CORS:** Configured globally in each microservice.
+- **Validation:** Uses express-validator to sanitize and validate input data.
+- **JWT:** Currently, JWT authentication is **NOT** used in these microservices.
+
+---
+
+## 📦 Domain Structure
+
+
 
 ```
 clients/
@@ -67,35 +69,34 @@ clients/
 
 ---
 
-## ⚙️ Ejecución general
+## ⚙️ Execution 
 
-Cada microservicio es independiente y puede ejecutarse de forma local o en contenedores Docker. Consulta el README.md de cada microservicio para instrucciones específicas.
+Each microservice is independent and can be run locally or inside Docker containers. Refer to each microservice's `README.md` for specific instructions.
 
 ---
-## 🐳 Despliegue con Docker Compose
+## 🐳 Deployment with Docker Compose
 
-Puedes levantar todos los microservicios del dominio **clients** usando Docker Compose. Asegúrate de tener un archivo `docker-compose.yml` en la raíz del dominio con la configuración de cada microservicio y la base de datos PostgreSQL.
+You can spin up all microservices under the **clients** domain using Docker Compose. Make sure you have a `docker-compose.yml` file at the root of the domain with the configuration for each microservice and the PostgreSQL database.
 
-**Ejemplo de comandos:**
+**Example commands:**
 
 ```sh
-# Construir y levantar todos los servicios en segundo plano
+# Build and start all services in the background
 docker compose up --build -d
 
-# Ver logs de todos los servicios
+# View logs from all services
 docker compose logs -f
 
-# Detener todos los servicios
+# Stop all services
 docker compose down
-```
 
-> Consulta el archivo `docker-compose.yml` para detalles de puertos, variables de entorno y dependencias
+> Check the `docker-compose.yml` file for details on ports, environment variables, and dependencies
 
-## 📚 Notas
+## 📚 Notes
 
-- Cada microservicio es autónomo y desacoplado.
-- El patrón n-capas y MVC facilitan el mantenimiento y escalabilidad.
-- CORS puede configurarse según el origen de tu frontend.
-- Cumple con principios KISS, DRY y SOLID para un código limpio y mantenible.
+- Each microservice is autonomous and decoupled.
+- The n-layer and MVC patterns facilitate maintenance and scalability.
+- CORS can be configured according to the origin of your frontend.
+- Complies with KISS, DRY, and SOLID principles for clean and maintainable code.
 
 ---

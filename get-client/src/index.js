@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 3002;
 app.use(cors()); // Habilitar CORS para todas las rutas
 app.use(express.json());
 
-// Usar Swagger UI en la ruta '/docs'
+//  Swagger UI  '/docs'
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // Routes

@@ -1,41 +1,43 @@
 # Update Client Microservice
 
-Este microservicio permite actualizar los datos de clientes en la base de datos PostgreSQL del sistema **My Pet Host**.
+This microservice allows updating client data in the PostgreSQL database of the **My Pet Host** system.
 
-## 🛠️ Tecnologías y Frameworks
+## 🛠️ Technologies and Frameworks
 
-- **Lenguaje:** JavaScript (Node.js)
+- **Language:** JavaScript (Node.js)
 - **Framework:** Express.js
 
-## 🌐 Estilo de Arquitectura
+## 🌐 Architecture Style
 
-- **REST API:** Todas las rutas siguen el estilo RESTful para la gestión de recursos.
+- **REST API:** All routes follow the RESTful style for resource management.
 
-## 🏛️ Arquitectura del Proyecto
+## 🏛️ Project Architecture
 
-- **Arquitectura en N-Capas:** Separación clara entre rutas, controladores, middlewares, configuración y utilidades.
-- **MVC (Modelo-Vista-Controlador):** Separación de modelos (DB), controladores (lógica de negocio) y rutas (endpoints).
+- **N-Layer Architecture:** Clear separation between routes, controllers, middlewares, configuration, and utilities.
+- **MVC (Model-View-Controller):** Separation of models (DB), controllers (business logic), and routes (endpoints).
 
-## 🧩 Patrones de Diseño
+## 🧩 Design Patterns
 
-- **KISS (Keep It Simple, Stupid):** Código sencillo y fácil de entender.
-- **DRY (Don't Repeat Yourself):** Reutilización de middlewares y lógica.
-- **SOLID:** Principios aplicados en la separación de responsabilidades.
+- **KISS (Keep It Simple, Stupid):** Simple and easy-to-understand code.
+- **DRY (Don't Repeat Yourself):** Reuse of middlewares and logic.
+- **SOLID:** Principles applied to ensure separation of responsibilities.
 
-## 🗄️ Base de Datos
+## 🗄️ Database
 
-- **PostgreSQL:** Conexión mediante el paquete `pg` y uso de variables de entorno para la configuración.
+- **PostgreSQL:** Connected via the `pg` package, using environment variables for configuration.
 
-## 🔒 Seguridad y Middleware
+## 🔒 Security and Middleware
 
-- **CORS:** Habilitado globalmente usando el paquete `cors` para permitir solicitudes desde otros orígenes.
-- **Validación:** Uso de `express-validator` para validar y sanear los datos de entrada.
-- **Manejo de Errores:** Middleware global para capturar y responder errores de manera uniforme.
-- **JWT:** Actualmente **NO** se utiliza autenticación JWT en este microservicio.
+- **CORS:** Globally enabled using the `cors` package to allow requests from other origins.
+- **Validation:** Uses `express-validator` to validate and sanitize input data.
+- **Error Handling:** Global middleware to consistently capture and respond to errors.
+- **JWT:** Currently, JWT authentication is **NOT** used in this microservice.
 
 ---
 
-## 📦 Estructura del proyecto
+## 📦 Project Structure
+
+
 
 ```
 update-client/
@@ -52,9 +54,9 @@ update-client/
 
 ---
 
-## ⚙️ Ejecución
+## ⚙️ Execution
 
-**Modo local:**
+**local:**
 ```sh
 npm install
 npm run dev
@@ -71,11 +73,11 @@ docker run -p 3002:3002 --env-file .env update-client
 
 ---
 
-## 🛠️ Endpoints principales
+## 🛠️ Endpoints 
 
-- `PUT /api/clients/:id` — Actualiza los datos de un cliente por su ID.
+- `PUT /api/clients/:id` — update data clients.
 
-**Ejemplo de request (PUT):**
+**Example  request (PUT):**
 ```
 PUT http://3.214.168.136:8000/api/clients/23
 
@@ -88,7 +90,7 @@ Body:
 }
 ```
 
-**Respuesta Exitosa (200):**
+**Sucefull response  (200):**
 ```json
 {
   "message": "Client updated successfully",
@@ -104,16 +106,16 @@ Body:
 
 | Código | Motivo                        |
 | ------ | ----------------------------- |
-| 200    | Cliente actualizado           |
-| 400    | Datos inválidos               |
-| 404    | Cliente no encontrado         |
-| 500    | Error interno del servidor    |
+| 200    | Cliente update                |
+| 400    | invalid data                  |
+| 404    | Client not found              |
+| 500    | internal error service        |
 
 ---
 
-## 📚 Notas
+## 📚 Notes
 
-- Arquitectura desacoplada, cada microservicio es independiente.
-- El patrón n-capas y MVC facilitan el mantenimiento y escalabilidad.
-- CORS puede configurarse según el origen de tu frontend.
-- Cumple con principios KISS, DRY y SOLID para un código limpio
+- Decoupled architecture, each microservice is independent.
+- The n-layer and MVC patterns facilitate maintenance and scalability.
+- CORS can be configured according to the origin of your frontend.
+- Complies with KISS, DRY, and SOLID principles for clean code.

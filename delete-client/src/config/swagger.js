@@ -3,7 +3,8 @@
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 
-// Configuración de Swagger
+// swagger configuration
+// This configuration defines the OpenAPI specification for the Delete Client API
 const options = {
   definition: {
     openapi: '3.0.0',
@@ -13,10 +14,10 @@ const options = {
       description: 'API documentation for deleting clients from the database',
     },
   },
-  apis: ['./src/routes/clients.routes.js', './src/controllers/clients.controller.js'], // Archivos donde estarán los comentarios de Swagger
+  apis: ['./src/routes/clients.routes.js', './src/controllers/clients.controller.js'], // archives where Swagger comments are located
 };
 
-// Generar la especificación Swagger
+// Generate Swagger specification
 const swaggerSpec = swaggerJsdoc(options);
 
 module.exports = { swaggerUi, swaggerSpec };

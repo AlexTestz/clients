@@ -5,13 +5,13 @@ exports.updateClient = async (req, res, next) => {
   const { name, last_name, email, phone } = req.body;
 
   try {
-    // Verificar si el cliente existe
+    // verification if the client exists
     const existing = await pool.query('SELECT * FROM clients WHERE id = $1', [id]);
     if (existing.rows.length === 0) {
       return res.status(404).json({ message: 'Client not found' });
     }
 
-    // Verificar si el email ya está en uso por OTRO cliente
+    // verification if the email is already in use by another client
     const duplicateEmail = await pool.query(
       'SELECT * FROM clients WHERE email = $1 AND id != $2',
       [email, id]
@@ -20,7 +20,7 @@ exports.updateClient = async (req, res, next) => {
       return res.status(409).json({ message: 'Email already in use by another client' });
     }
 
-    // Actualizar cliente
+    // update the client
     const result = await pool.query(
       `UPDATE clients 
        SET name = $1, last_name = $2, email = $3, phone = $4 

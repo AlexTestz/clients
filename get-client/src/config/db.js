@@ -3,7 +3,7 @@ require('dotenv').config();
 
 
 const useSSL = true;
-console.log(`Conectando a PostgreSQL con SSL: ${useSSL}`);
+console.log(`Connecting to PostgreSQL with SSL: ${useSSL}`);
 
 const pool = new Pool({
   host: process.env.DB_HOST,
