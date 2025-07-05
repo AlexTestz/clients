@@ -11,7 +11,7 @@ app.use(express.json());
 // Usar Swagger UI en la ruta '/docs'
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-// Rutas
+// routes
 const clientRoutes = require('./routes/clients.routes');
 app.use('/api', clientRoutes);
 
