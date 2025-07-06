@@ -3,7 +3,7 @@
 const swaggerJsdoc = require('swagger-jsdoc');
 const swaggerUi = require('swagger-ui-express');
 
-// Configuración de Swagger
+// swagger options
 const options = {
   definition: {
     openapi: '3.0.0',
@@ -16,7 +16,7 @@ const options = {
   apis: ['./src/routes/clients.routes.js', './src/controllers/clients.controller.js', './src/middlewares/validateClient.js'], // Archivos donde estarán los comentarios de Swagger
 };
 
-// Generar la especificación Swagger
+// Generate Swagger specification
 const swaggerSpec = swaggerJsdoc(options);
 
 module.exports = { swaggerUi, swaggerSpec };

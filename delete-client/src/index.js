@@ -2,13 +2,13 @@
 
 require('dotenv').config();
 const express = require('express');
-const { swaggerUi, swaggerSpec } = require('./config/swagger');  // Importar configuración de Swagger
+const { swaggerUi, swaggerSpec } = require('./config/swagger');  // Import Swagger configuration
 const app = express();
 const PORT = process.env.PORT || 3004;
 
 app.use(express.json());
 
-// Usar Swagger UI en la ruta '/docs'
+// SWAGGER UI
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 // routes

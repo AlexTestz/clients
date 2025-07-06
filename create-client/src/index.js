@@ -1,19 +1,19 @@
 // src/index.js
 
-require('dotenv').config(); // cargar variables de entorno desde .env
+require('dotenv').config(); // load environment variables
 const express = require('express');
 const cors = require('cors');
-const { swaggerUi, swaggerSpec } = require('./config/swagger');  // Importar configuración de Swagger
+const { swaggerUi, swaggerSpec } = require('./config/swagger');  // Import Swagger configuration
 const app = express();
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 
-// Usar Swagger UI en la ruta '/docs'
+// swagger UI at '/docs'
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
-// Rutas
+// Routes
 const clientRoutes = require('./routes/clients.routes');
 app.use('/api', clientRoutes);
 
@@ -22,11 +22,11 @@ app.get('/', (req, res) => {
   res.send('✅ Create Client Service is running!');
 });
 
-// Manejo global de errores
+// Error handling middleware
 const errorHandler = require('./middlewares/errorHandler');
 app.use(errorHandler);
 
-// Solo escuchar si este archivo es el principal
+// Start the server if this file is run directly
 if (require.main === module) {
   const PORT = process.env.PORT || 3001;
   app.listen(PORT, () => {
@@ -34,5 +34,5 @@ if (require.main === module) {
   });
 }
 
-// Exportar para pruebas
+// Export the app for testing or further configuration
 module.exports = app;

@@ -2,7 +2,7 @@ const { Pool } = require('pg');
 require('dotenv').config();
 
 
-const useSSL = true;  // fuerza usar SSL, porque AWS RDS lo requiere
+const useSSL = true;  // force using SSL, because AWS RDS requires it
 console.log(`Connecting to PostgreSQL with SSL: ${useSSL}`);
 
 const pool = new Pool({

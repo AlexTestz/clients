@@ -16,7 +16,7 @@ const validateClientUpdate = [
     .optional()
     .isNumeric().withMessage('Phone must contain only numbers'),
 
-  // Manejo de errores
+  //ERROR
   (req, res, next) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
